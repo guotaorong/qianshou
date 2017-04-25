@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'welcome#index'
-  resources :wives
+
+  resources :wives do
+    resources :resumes
+  end
 
   namespace :admin do
     resources :wives do

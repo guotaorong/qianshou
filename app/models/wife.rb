@@ -16,4 +16,6 @@ class Wife < ApplicationRecord
     self.is_hidden = true
     save
   end
+
+  has_many :resumes
 end

@@ -1,2 +1,5 @@
 <h1><%= @wife.title%></h1>
 <p><%= simple_format(@wife.description)%></p>
+<div class="text-center">
+  <%= link_to("投交履历", new_wife_resume_path(@wife), :style => "font-size: 30px; text-decoration:underline;") %>
+</div>
