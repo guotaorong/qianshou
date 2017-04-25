@@ -15,34 +15,38 @@
       <td>
         收到履历数量
       </td>
+      <td>Creator</td>
     </tr>
   </thead>
   <% @wives.each do |wife| %>
-    <tr>
-      <td>
-        <%= render_wife_status(wife) %>
-        <%= link_to(wife.title, wife_path(wife)) %>
-      </td>
-      <td>
-        <%= wife.salary %>
-      </td>
-      <td>
-        <%= wife.age%>
-      </td>
-      <td><%= wife.city%></td>
-      <td>
-        <% if wife.is_hidden %>
-          <%= link_to("Publish", publish_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
-        <% else %>
-          <%= link_to("Hide", hide_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
-        <% end %>
-        <%= link_to("Edit", edit_admin_wife_path(wife)) %>
-        <%= link_to("Destroy", admin_wife_path(wife), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
-      </td>
-      <td>
-        <%= wife.created_at %>
-      </td>
-      <td> <%= link_to(wife.resumes.count, admin_wife_resumes_path(wife)) %> </td>
-    </tr>
+    <%if current_user && current_user == wife.user%>
+      <tr>
+        <td>
+          <%= render_wife_status(wife) %>
+          <%= link_to(wife.title, wife_path(wife)) %>
+        </td>
+        <td>
+          <%= wife.salary %>
+        </td>
+        <td>
+          <%= wife.age%>
+        </td>
+        <td><%= wife.city%></td>
+        <td>
+          <% if wife.is_hidden %>
+            <%= link_to("Publish", publish_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
+          <% else %>
+            <%= link_to("Hide", hide_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
+          <% end %>
+          <%= link_to("Edit", edit_admin_wife_path(wife)) %>
+          <%= link_to("Destroy", admin_wife_path(wife), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+        </td>
+        <td>
+          <%= wife.created_at %>
+        </td>
+        <td> <%= link_to(wife.resumes.count, admin_wife_resumes_path(wife)) %> </td>
+        <td><%= wife.user.email%></td>
+      </tr>
+    <% end%>
   <% end %>
 </table>

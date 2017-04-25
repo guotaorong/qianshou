@@ -18,4 +18,6 @@ class Wife < ApplicationRecord
   end
 
   has_many :resumes
+
+  belongs_to :user
 end
