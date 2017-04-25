@@ -20,4 +20,6 @@ class Wife < ApplicationRecord
   has_many :resumes
 
   belongs_to :user
+
+  mount_uploader :image, ImageUploader
 end

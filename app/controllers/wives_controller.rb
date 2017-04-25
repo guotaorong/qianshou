@@ -5,7 +5,7 @@ class WivesController < ApplicationController
     @wife = Wife.find(params[:id])
 
     if @wife.is_hidden
-      flash[:warning] = 'This wife already archieved'
+      flash[:warning] = '她已经找到真爱了！'
       redirect_to wives_path
     end
   end

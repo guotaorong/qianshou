@@ -65,6 +65,6 @@ class Admin::WivesController < ApplicationController
   private
 
   def wife_params
-    params.require(:wife).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden)
+    params.require(:wife).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden, :image)
   end
 end

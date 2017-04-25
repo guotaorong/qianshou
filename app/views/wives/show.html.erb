@@ -1,5 +1,12 @@
 <h1><%= @wife.title%></h1>
 <p><%= simple_format(@wife.description)%></p>
 <div class="text-center">
-  <%= link_to("投交履历", new_wife_resume_path(@wife), :style => "font-size: 30px; text-decoration:underline;") %>
+  <%= link_to("表达爱意", new_wife_resume_path(@wife), :style => "font-size: 30px; text-decoration:underline;") %>
+</div>
+<div class="col-md-6">
+  <% if @wife.image.present? %>
+    <%= image_tag(@wife.image.medium.url, class: "thumbnail") %>
+  <% else %>
+    <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
+  <% end %>
 </div>
