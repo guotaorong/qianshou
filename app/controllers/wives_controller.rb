@@ -6,7 +6,7 @@ class WivesController < ApplicationController
   end
 
   def index
-    @wives = Wife.all
+    @wives = Wife.where(is_hidden: false).order('created_at DESC')
   end
 
   def new
@@ -46,6 +46,6 @@ class WivesController < ApplicationController
   private
 
   def wife_params
-    params.require(:wife).permit(:title, :description, :age, :salary, :city, :contact_email)
+    params.require(:wife).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden)
   end
 end
