@@ -4,12 +4,32 @@
 <br>
 <br>
 <table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>女神</td>
+      <td>薪资</td>
+      <td>芳龄</td>
+      <td>城市</td>
+      <td>管理选项</td>
+      <td>刊登时间</td>
+      <td>
+        收到履历数量
+      </td>
+    </tr>
+  </thead>
   <% @wives.each do |wife| %>
     <tr>
       <td>
         <%= render_wife_status(wife) %>
-        <%= link_to(wife.title, admin_wife_path(wife)) %>
+        <%= link_to(wife.title, wife_path(wife)) %>
       </td>
+      <td>
+        <%= wife.salary %>
+      </td>
+      <td>
+        <%= wife.age%>
+      </td>
+      <td><%= wife.city%></td>
       <td>
         <% if wife.is_hidden %>
           <%= link_to("Publish", publish_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
@@ -22,6 +42,7 @@
       <td>
         <%= wife.created_at %>
       </td>
+      <td> <%= link_to(wife.resumes.count, admin_wife_resumes_path(wife)) %> </td>
     </tr>
   <% end %>
 </table>
