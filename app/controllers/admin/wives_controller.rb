@@ -1,6 +1,7 @@
 class Admin::WivesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   before_action :require_is_admin
+  layout 'admin'
 
   def show
     @wife = Wife.find(params[:id])
@@ -43,6 +44,21 @@ class Admin::WivesController < ApplicationController
     @wife.destroy
 
     redirect_to admin_wives_path
+  end
+
+  def publish
+    @wife = Wife.find(params[:id])
+    @wife.publish!
+
+    redirect_to :back
+  end
+
+  def hide
+    @wife = Wife.find(params[:id])
+
+    @wife.hide!
+
+    redirect_to :back
   end
 
   private

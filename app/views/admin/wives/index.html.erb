@@ -11,6 +11,11 @@
         <%= link_to(wife.title, admin_wife_path(wife)) %>
       </td>
       <td>
+        <% if wife.is_hidden %>
+          <%= link_to("Publish", publish_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
+        <% else %>
+          <%= link_to("Hide", hide_admin_wife_path(wife), :method => :post, :class => "btn btn-xs btn-default") %>
+        <% end %>
         <%= link_to("Edit", edit_admin_wife_path(wife)) %>
         <%= link_to("Destroy", admin_wife_path(wife), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
       </td>

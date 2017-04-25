@@ -6,4 +6,14 @@ class Wife < ApplicationRecord
   validates :city, presence: true
 
   validates :salary, numericality: { greater_than: 0 }
+
+  def publish!
+    self.is_hidden = false
+    save
+  end
+
+  def hide!
+    self.is_hidden = true
+    save
+  end
 end

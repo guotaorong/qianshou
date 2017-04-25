@@ -3,6 +3,11 @@ class WivesController < ApplicationController
 
   def show
     @wife = Wife.find(params[:id])
+
+    if @wife.is_hidden
+      flash[:warning] = 'This wife already archieved'
+      redirect_to wives_path
+    end
   end
 
   def index

@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   resources :wives
 
   namespace :admin do
-    resources :wives
+    resources :wives do
+      member do
+        post :publish
+        post :hide
+      end
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
