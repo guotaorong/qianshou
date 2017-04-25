@@ -1,5 +1,6 @@
-class WivesController < ApplicationController
+class Admin::WivesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
+  before_action :require_is_admin
 
   def show
     @wife = Wife.find(params[:id])
@@ -15,8 +16,9 @@ class WivesController < ApplicationController
 
   def create
     @wife = Wife.new(wife_params)
+
     if @wife.save
-      redirect_to wives_path
+      redirect_to admin_wives_path
     else
       render :new
     end
@@ -29,7 +31,7 @@ class WivesController < ApplicationController
   def update
     @wife = Wife.find(params[:id])
     if @wife.update(wife_params)
-      redirect_to wives_path
+      redirect_to admin_wives_path
     else
       render :edit
     end
@@ -40,7 +42,7 @@ class WivesController < ApplicationController
 
     @wife.destroy
 
-    redirect_to wives_path
+    redirect_to admin_wives_path
   end
 
   private

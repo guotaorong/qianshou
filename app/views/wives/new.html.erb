@@ -2,5 +2,9 @@
 <%= simple_form_for @wife do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
+  <%= f.input :salary, :label => "薪水" %>
+  <%= f.input :age, :label => "年龄" %>
+  <%= f.input :city, :label => "城市"%>
+  <%= f.input :contact_email %>
   <%= f.submit "Submit" %>
 <% end %>

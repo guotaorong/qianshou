@@ -1,0 +1,2 @@
+module Admin::WivesHelper
+end

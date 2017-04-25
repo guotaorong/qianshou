@@ -1,5 +1,5 @@
-<h1> Edit a wife </h1>
-<%= simple_form_for @wife do |f| %>
+<h1> Add a wife </h1>
+<%= simple_form_for [:admin,@wife] do |f| %>
   <%= f.input :title %>
   <%= f.input :description %>
   <%= f.input :salary, :label => "薪水" %>
