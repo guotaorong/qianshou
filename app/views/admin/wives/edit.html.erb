@@ -7,6 +7,8 @@
   <%= f.input :city, :label => "城市"%>
   <%= f.input :contact_email %>
   <%= f.input :is_hidden %>
+  <%= f.submit "Submit" %>
+  <br>
   <% if @wife.image.present? %>
     <span>beauty</span> <br>
     <%= image_tag(@wife.image.thumb.url) %>
@@ -14,5 +16,4 @@
   <div class="group">
     <%= f.input :image, as: :file %>
   </div>
-  <%= f.submit "Submit" %>
 <% end %>
