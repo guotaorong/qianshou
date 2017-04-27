@@ -47,6 +47,6 @@ class Admin::HusbandsController < ApplicationController
   private
 
   def husband_params
-    params.require(:husband).permit(:title, :description)
+    params.require(:husband).permit(:title, :description, :age, :salary, :city, :contact_email)
   end
 end

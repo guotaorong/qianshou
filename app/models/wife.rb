@@ -4,7 +4,6 @@ class Wife < ApplicationRecord
   validates :age, presence: true
   validates :salary, presence: true
   validates :city, presence: true
-
   validates :salary, numericality: { greater_than: 0 }
 
   def publish!
