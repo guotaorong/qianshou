@@ -6,7 +6,7 @@ class Admin::HusbandsController < ApplicationController
   end
 
   def index
-    @husbands = Husband.all
+    @jobs = Husband.where(is_hidden: false).order('created_at DESC')
     end
 
   def new
@@ -47,6 +47,6 @@ class Admin::HusbandsController < ApplicationController
   private
 
   def husband_params
-    params.require(:husband).permit(:title, :description, :age, :salary, :city, :contact_email)
+    params.require(:husban).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden, :image)
   end
 end

@@ -6,6 +6,7 @@
   <% @husbands.each do |husband| %>
     <tr>
       <td>
+        <%= render_husband_status(husband) %>
         <%= link_to(husband.title, admin_husband_path(husband)) %>
       </td>
       <td>
