@@ -1,12 +1,14 @@
 class Admin::HusbandsController < ApplicationController
   before_action :authenticate_user!
+  before_action :require_is_admin
+  layout 'admin'
 
   def show
     @husband = Husband.find(params[:id])
   end
 
   def index
-    @jobs = Husband.where(is_hidden: false).order('created_at DESC')
+    @husbands = Husband.where(is_hidden: false).order('created_at DESC')
     end
 
   def new
@@ -47,6 +49,6 @@ class Admin::HusbandsController < ApplicationController
   private
 
   def husband_params
-    params.require(:husban).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden, :image)
+    params.require(:husband).permit(:title, :description, :age, :salary, :city, :contact_email, :is_hidden, :image)
   end
 end

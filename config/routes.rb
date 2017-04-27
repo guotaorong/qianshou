@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :resumes
   end
 
+  resources :husbands do
+    resources :jianlis
+  end
+
   namespace :admin do
     resources :wives do
       member do

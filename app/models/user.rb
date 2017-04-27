@@ -11,4 +11,6 @@ class User < ApplicationRecord
   has_many :resumes
 
   has_many :wives
+
+  has_many :jianlis
 end

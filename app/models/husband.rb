@@ -5,4 +5,6 @@ class Husband < ApplicationRecord
   validates :salary, presence: true
   validates :city, presence: true
   validates :salary, numericality: { greater_than: 0 }
+
+  has_many :jianlis
 end
