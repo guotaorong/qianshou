@@ -1,40 +1,43 @@
+
 <table class="table table-boldered">
-  <thead>
-    <tr>
-      <td>PHOTO</td>
-      <td>女神</td>
-      <td>薪资</td>
-      <td>芳龄</td>
-      <td>城市</td>
-      <td>刊登时间</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @wives.each do |wife| %>
+  <div class="row">
+    <thead>
       <tr>
-        <td>
-          <%= link_to wife_path(wife) do %>
-            <% if wife.image.present? %>
-              <%= image_tag(wife.image.thumb.url, class: "thumbnail") %>
-            <% else %>
-              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-            <% end %>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to(wife.title, wife_path(wife)) %>
-        </td>
-        <td>
-          <%= wife.salary %>
-        </td>
-        <td>
-          <%= wife.age%>
-        </td>
-        <td><%= wife.city%></td>
-        <td>
-          <%= wife.created_at %>
-        </td>
+        <td>PHOTO</td>
+        <td>女神</td>
+        <td>薪资</td>
+        <td>芳龄</td>
+        <td>城市</td>
+        <td>刊登时间</td>
       </tr>
-    <% end %>
-  </tbody>
+    </thead>
+    <tbody>
+      <% @wives.each do |wife| %>
+        <tr>
+          <td>
+            <%= link_to wife_path(wife) do %>
+              <% if wife.image.present? %>
+                <%= image_tag(wife.image.thumb.url, class: "thumbnail") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+              <% end %>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to(wife.title, wife_path(wife)) %>
+          </td>
+          <td>
+            <%= wife.salary %>
+          </td>
+          <td>
+            <%= wife.age%>
+          </td>
+          <td><%= wife.city%></td>
+          <td>
+            <%= wife.created_at %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </div>
 </table>
