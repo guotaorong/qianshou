@@ -22,7 +22,7 @@
     <tr>
       <td>
         <%= render_husband_status(husband) %>
-        <td> <%= link_to(husband.jianlis.count, admin_husband_jianlis_path(husband)) %> </td>
+        <%= link_to(husband.title, admin_husband_path(husband))%>
       </td>
       <td>
         <%= husband.salary %>
@@ -43,7 +43,8 @@
       <td>
         <%= husband.created_at %>
       </td>
-      <td> <%= link_to(husband.jianlis.count, admin_husband_jianlis_path(husband)) %> </td>
+      <td><%= link_to(husband.jianlis.count, admin_husband_jianlis_path(husband)) %></td>
+      <td><%= husband.user.email%></td>
     </tr>
   <% end%>
 </table>

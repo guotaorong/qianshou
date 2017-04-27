@@ -7,4 +7,8 @@ class Husband < ApplicationRecord
   validates :salary, numericality: { greater_than: 0 }
 
   has_many :jianlis
+
+  mount_uploader :image, ImageUploader
+
+  belongs_to :user
 end

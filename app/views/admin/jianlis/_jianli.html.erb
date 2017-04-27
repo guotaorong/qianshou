@@ -13,11 +13,11 @@
       <p> <%= simple_format(jianli.content) %> </p>
     </div>
     <hr>
-    <% if jianli.attachment.present? %>
+    <% if jianli.fujian.present? %>
       <i class="fa fa-paperclip"> </i>
-      <%= link_to("Download jianli", jianli.attachment_url) %>
+      <%= link_to("Download jianli", jianli.fujian_url) %>
     <% else %>
-      No Attachment
+      No fujian
     <% end %>
   </div>
 </div>

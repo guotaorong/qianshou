@@ -13,4 +13,6 @@ class User < ApplicationRecord
   has_many :wives
 
   has_many :jianlis
+
+  has_many :husbands
 end

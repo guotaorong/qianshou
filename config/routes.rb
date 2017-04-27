@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :husbands do
     resources :jianlis
+    
   end
 
   namespace :admin do

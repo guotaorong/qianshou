@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170427072744) do
+ActiveRecord::Schema.define(version: 20170427232808) do
 
   create_table "husbands", force: :cascade do |t|
     t.string   "title"
@@ -22,6 +22,8 @@ ActiveRecord::Schema.define(version: 20170427072744) do
     t.string   "city"
     t.string   "contact_email"
     t.boolean  "is_hidden",     default: true
+    t.string   "image"
+    t.integer  "user_id"
   end
 
   create_table "jianlis", force: :cascade do |t|

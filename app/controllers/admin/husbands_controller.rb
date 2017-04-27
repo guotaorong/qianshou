@@ -17,6 +17,7 @@ class Admin::HusbandsController < ApplicationController
 
   def create
     @husband = Husband.new(husband_params)
+    @husband.user = current_user
 
     if @husband.save
       redirect_to admin_husbands_path

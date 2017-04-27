@@ -13,6 +13,13 @@
       <% @husbands.each do |husband| %>
         <tr>
           <td>
+            <%= link_to husband_path(husband) do %>
+              <% if husband.image.present? %>
+                <%= image_tag(husband.image.thumb.url, class: "thumbnail") %>
+              <% else %>
+                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+              <% end %>
+            <% end %>
             <%= link_to(husband.title, husband_path(husband)) %>
           </td>
           <td>
