@@ -1,21 +1,49 @@
 <div class="pull-right">
-  <%= link_to("Add a husband", new_admin_husband_path, :class => "btn btn-default")%>
+  <%= link_to("Add a husband", new_admin_husband_path, :class => "btn btn-default" ) %>
 </div>
 <br>
+<br>
 <table class="table table-boldered">
+  <thead>
+    <tr>
+      <td>男神</td>
+      <td>薪资</td>
+      <td>年龄</td>
+      <td>城市</td>
+      <td>管理选项</td>
+      <td>刊登时间</td>
+      <td>
+        收到履历数量
+      </td>
+      <td>Creator</td>
+    </tr>
+  </thead>
   <% @husbands.each do |husband| %>
     <tr>
       <td>
         <%= render_husband_status(husband) %>
-        <%= link_to(husband.title, admin_husband_path(husband)) %>
+        <td> <%= link_to(husband.jianlis.count, admin_husband_jianlis_path(husband)) %> </td>
       </td>
       <td>
+        <%= husband.salary %>
+      </td>
+      <td>
+        <%= husband.age%>
+      </td>
+      <td><%= husband.city%></td>
+      <td>
+        <% if husband.is_hidden %>
+          <%= link_to("Publish","#", :method => :post, :class => "btn btn-xs btn-default") %>
+        <% else %>
+          <%= link_to("Hide", "#", :method => :post, :class => "btn btn-xs btn-default") %>
+        <% end %>
         <%= link_to("Edit", edit_admin_husband_path(husband)) %>
         <%= link_to("Destroy", admin_husband_path(husband), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
       </td>
       <td>
         <%= husband.created_at %>
       </td>
+      <td> <%= link_to(husband.jianlis.count, admin_husband_jianlis_path(husband)) %> </td>
     </tr>
-  <% end %>
+  <% end%>
 </table>

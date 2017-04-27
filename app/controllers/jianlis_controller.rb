@@ -23,6 +23,6 @@ class JianlisController < ApplicationController
   private
 
   def jianli_params
-    params.require(:jianli).permit(:content, :attachment)
+    params.require(:jianli).permit(:content, :fujian)
   end
 end

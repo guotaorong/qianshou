@@ -4,5 +4,5 @@ class Jianli < ApplicationRecord
 
   validates :content, presence: true
 
-  mount_uploader :attachment, AttachmentUploader
+  mount_uploader :fujian, FujianUploader
 end

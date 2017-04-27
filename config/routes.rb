@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   resources :husbands
 
   namespace :admin do
-    resources :husbands
+    resources :husbands do
+      resources :jianlis
+    end
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
