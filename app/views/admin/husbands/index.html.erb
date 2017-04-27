@@ -1,0 +1,20 @@
+<div class="pull-right">
+  <%= link_to("Add a husband", new_admin_husband_path, :class => "btn btn-default")%>
+</div>
+<br>
+<table class="table table-boldered">
+  <% @husbands.each do |husband| %>
+    <tr>
+      <td>
+        <%= link_to(husband.title, admin_husband_path(husband)) %>
+      </td>
+      <td>
+        <%= link_to("Edit", edit_admin_husband_path(husband)) %>
+        <%= link_to("Destroy", admin_husband_path(husband), :method => :delete, :data => { :confirm => "Are you sure?" }) %>
+      </td>
+      <td>
+        <%= husband.created_at %>
+      </td>
+    </tr>
+  <% end %>
+</table>
