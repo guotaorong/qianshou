@@ -1,39 +1,37 @@
 <table class="table table-boldered">
-  <div class="row">
-    <thead>
+  <thead>
+    <tr>
+      <td>男神</td>
+      <td>薪资</td>
+      <td>年龄</td>
+      <td>城市</td>
+      <td>刊登时间</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @husbands.each do |husband| %>
       <tr>
-        <td>男神</td>
-        <td>薪资</td>
-        <td>年龄</td>
-        <td>城市</td>
-        <td>刊登时间</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @husbands.each do |husband| %>
-        <tr>
-          <td>
-            <%= link_to husband_path(husband) do %>
-              <% if husband.image.present? %>
-                <%= image_tag(husband.image.thumb.url, class: "thumbnail") %>
-              <% else %>
-                <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
-              <% end %>
+        <td>
+          <%= link_to husband_path(husband) do %>
+            <% if husband.image.present? %>
+              <%= image_tag(husband.image.thumb.url, class: "thumbnail") %>
+            <% else %>
+              <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
             <% end %>
-            <%= link_to(husband.title, husband_path(husband)) %>
-          </td>
-          <td>
-            <%= husband.salary %>
-          </td>
-          <td>
-            <%= husband.age%>
-          </td>
-          <td><%= husband.city%></td>
-          <td>
-            <%= husband.created_at %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </div>
+          <% end %>
+          <%= link_to(husband.title, husband_path(husband)) %>
+        </td>
+        <td>
+          <%= husband.salary %>
+        </td>
+        <td>
+          <%= husband.age%>
+        </td>
+        <td><%= husband.city%></td>
+        <td>
+          <%= husband.created_at %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
